@@ -38,21 +38,20 @@ README.md             # 项目说明
 ### **本地运行**
 > 先从最小版本跑起来，再逐步加功能。
 
-**1) 启动前端（Next.js，使用 pnpm）**
+**1) 启动前端（Next.js）**
 ```bash
 cd apps/web
-pnpm install
-pnpm dev
+npm install
+npm run dev
 ```
 默认地址：`http://localhost:3000`
 
-**2) 启动后端（FastAPI，使用 uv）**
+**2) 启动后端（FastAPI）**
 ```bash
 cd apps/api
-uv venv .venv
-# Activate the virtual environment. On Windows, use `.venv\Scripts\activate`.
+python -m venv .venv
 source .venv/bin/activate
-uv pip install -r requirements.txt
+pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
 ```
 健康检查：`http://localhost:8000/health`
