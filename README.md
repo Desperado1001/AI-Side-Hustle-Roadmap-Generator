@@ -13,6 +13,79 @@ The service is delivered as a SaaS product with a free trial and subscription‑
 
 ---
 
+## **Project Scaffold & Quick Start（从简单开始）**
+
+为了帮助你“练中学、快速上线”，当前仓库先提供**最小可运行框架**，包含前端与后端的基础文件结构。你可以在此基础上逐步增强功能。
+
+### **目录结构**
+```
+apps/
+  web/                # Next.js 前端（最小可运行）
+    app/
+      layout.js
+      page.js
+    styles/
+      globals.css
+    next.config.js
+    package.json
+  api/                # FastAPI 后端（最小可运行）
+    main.py
+    requirements.txt
+PRACTICE_PLAN.md      # 项目实践计划
+README.md             # 项目说明
+```
+
+### **本地运行**
+> 先从最小版本跑起来，再逐步加功能。
+
+**1) 启动前端（Next.js，使用 pnpm）**
+```bash
+cd apps/web
+pnpm install
+pnpm dev
+```
+默认地址：`http://localhost:3000`
+
+**2) 启动后端（FastAPI，使用 uv）**
+```bash
+cd apps/api
+uv venv .venv
+source .venv/bin/activate
+uv pip install -r requirements.txt
+uvicorn main:app --reload --port 8000
+```
+健康检查：`http://localhost:8000/health`
+
+### **下一步建议（练中学路线）**
+1. **替换页面文案**：先把 Landing 页内容改成你自己的价值主张。  
+2. **接通 API**：从 `/api/roadmap` 开始做最小的请求‑响应。  
+3. **迭代问卷与结果页**：每周只做 1 个小改动并上线验证。  
+
+---
+
+## **部署到 Vercel（前端）**
+> 说明：当前仓库的前端位于 `apps/web`，推荐先将前端部署到 Vercel；后端（FastAPI）可后续部署到 Render/Railway。
+
+### **方式一：Vercel 控制台部署（推荐）**
+1. 将项目推送到 GitHub。
+2. 登录 Vercel，点击 **New Project**，选择该仓库。
+3. 在 **Root Directory** 选择 `apps/web`。
+4. 设置构建命令与输出：
+   - Build Command：`pnpm build`
+   - Output Directory：`.next`
+   - Install Command：`pnpm install`
+5. 点击 **Deploy**，等待构建完成即可访问线上地址。
+
+### **方式二：Vercel CLI 部署**
+```bash
+pnpm add -g vercel
+cd apps/web
+vercel
+```
+按提示选择项目并完成部署。
+
+---
+
 ## **Technology Stack**
 
 To enable rapid iteration and easy maintenance, the following stack is recommended:
