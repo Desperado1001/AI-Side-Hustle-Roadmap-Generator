@@ -36,7 +36,7 @@
 
 ### 第 5 周：数据存储与账户功能
 - 接入数据库（PostgreSQL/Supabase）：
-  - User/Roadmap/Subscription 表。
+  - `User`、`Roadmap`、`Subscription` 表。
 - 实现基础登录/鉴权（Supabase Auth 或 NextAuth）。
 - 路线图保存与历史列表。
 - 输出：支持登录+保存+查看历史。
