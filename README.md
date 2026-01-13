@@ -13,6 +13,56 @@ The service is delivered as a SaaS product with a free trial and subscription‑
 
 ---
 
+## **Project Scaffold & Quick Start（从简单开始）**
+
+为了帮助你“练中学、快速上线”，当前仓库先提供**最小可运行框架**，包含前端与后端的基础文件结构。你可以在此基础上逐步增强功能。
+
+### **目录结构**
+```
+apps/
+  web/                # Next.js 前端（最小可运行）
+    app/
+      layout.js
+      page.js
+    styles/
+      globals.css
+    next.config.js
+    package.json
+  api/                # FastAPI 后端（最小可运行）
+    main.py
+    requirements.txt
+PRACTICE_PLAN.md      # 项目实践计划
+README.md             # 项目说明
+```
+
+### **本地运行**
+> 先从最小版本跑起来，再逐步加功能。
+
+**1) 启动前端（Next.js）**
+```bash
+cd apps/web
+npm install
+npm run dev
+```
+默认地址：`http://localhost:3000`
+
+**2) 启动后端（FastAPI）**
+```bash
+cd apps/api
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+uvicorn main:app --reload --port 8000
+```
+健康检查：`http://localhost:8000/health`
+
+### **下一步建议（练中学路线）**
+1. **替换页面文案**：先把 Landing 页内容改成你自己的价值主张。  
+2. **接通 API**：从 `/api/roadmap` 开始做最小的请求‑响应。  
+3. **迭代问卷与结果页**：每周只做 1 个小改动并上线验证。  
+
+---
+
 ## **Technology Stack**
 
 To enable rapid iteration and easy maintenance, the following stack is recommended:
