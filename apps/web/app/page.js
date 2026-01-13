@@ -23,8 +23,8 @@ export default function HomePage() {
       <div className="card">
         <h2>快速起步</h2>
         <ul>
-          {quickSteps.map((step) => (
-            <li key={step}>{step}</li>
+          {quickSteps.map((step, index) => (
+            <li key={index}>{step}</li>
           ))}
         </ul>
       </div>
